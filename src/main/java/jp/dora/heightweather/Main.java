@@ -19,14 +19,11 @@ public class Main extends JavaPlugin implements Listener {
 	public void onPlayerMove(PlayerMoveEvent e) {
 		Player player = e.getPlayer();
 		Location location = player.getLocation();
-		boolean weather = player.getWorld().hasStorm();
 
 		if (location.getY() >= 130) {
 			player.setPlayerWeather(WeatherType.CLEAR);
-		} else if(weather) {
-			player.setPlayerWeather(WeatherType.DOWNFALL);
 		} else {
-			player.setPlayerWeather(WeatherType.CLEAR);
+			player.resetPlayerWeather();
 		}
 	}
 
